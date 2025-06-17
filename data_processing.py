@@ -11,8 +11,10 @@ def process_numbers(numbers):
     
     # Calculate average
     average = total_sum / len(numbers)
+    
+    count = len(numbers)
 
-    return total_sum, total_product, average
+    return count, total_sum, total_product, average
 
 def main():
     # Define a list of numbers
@@ -22,9 +24,10 @@ def main():
     results = process_numbers(numbers)  # Error: 'number' should be 'numbers'
     
     # Print the results
-    print("Sum:", results[0])
-    print("Product:", results[1])
-    print("Average:", results[2])
+    print("Count of numbers: ", results[0])
+    print("Sum:", results[1])
+    print("Product:", results[2])
+    print("Average:", results[3])
 
 if __name__ == "__main__":
     main()
