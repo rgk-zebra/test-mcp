@@ -19,7 +19,7 @@ def main():
     numbers = [1, 2, 3, 4, 5]
     
     # Process the numbers
-    results = process_numbers(number)  # Error: 'number' should be 'numbers'
+    results = process_numbers(numbers)  # Error: 'number' should be 'numbers'
     
     # Print the results
     print("Sum:", results[0])
