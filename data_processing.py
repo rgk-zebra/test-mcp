@@ -24,7 +24,7 @@ def main():
     results = process_numbers(numbers)  # Error: 'number' should be 'numbers'
     
     # Print the results
-    print("Total values: ", results[0])
+    print("Count: ", results[0])
     print("Sum:", results[1])
     print("Product:", results[2])
     print("Average:", results[3])
