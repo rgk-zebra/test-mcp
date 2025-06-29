@@ -19,7 +19,23 @@
 #endif // WIN32
 
 	return utc;
-}
+	struct timeval tv;
+	struct tm *ptm;
+	gettimeofday(&tv, NULL);
+	ptm = localtime(&tv.tv_sec);
+	strTimeStamp[0] = '[';
+	// Adjust the size passed to strftime to account for the '[' character already written
+	strftime(strTimeStamp + 1, 49, "%m/%d/%Y|%T", ptm);
+	if(bEnableMicrosecond)
+	{
+		// Ensure we do not exceed the buffer size when appending microseconds
+		snprintf(strTimeStamp + strlen(strTimeStamp), sizeof(strTimeStamp) - strlen(strTimeStamp), ".%03d-%03d]", (int)tv.tv_usec/1000, (int)tv.tv_usec%1000);
+	}
+	else
+	{
+		// Ensure we do not exceed the buffer size when appending milliseconds
+		snprintf(strTimeStamp + strlen(strTimeStamp), sizeof(strTimeStamp) - strlen(strTimeStamp), ".%03d]", (int)tv.tv_usec/1000);
+	}
 
 char* getTimeStamp(bool bEnableMicrosecond)
 {
